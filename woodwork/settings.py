@@ -1,3 +1,4 @@
+import os
 import psycopg2
 from pathlib import Path
 from decouple import config
@@ -17,6 +18,7 @@ INSTALLED_APPS = [
     'django.contrib.sessions',
     'django.contrib.messages',
     'django.contrib.staticfiles',
+    'hometype',
 ]
 
 MIDDLEWARE = [
@@ -52,15 +54,15 @@ WSGI_APPLICATION = 'woodwork.wsgi.application'
 
 # Database
 # https://docs.djangoproject.com/en/3.2/ref/settings/#databases
-'''
+
 DATABASES = {
     'default': {
         'ENGINE': 'django.db.backends.sqlite3',
         'NAME': BASE_DIR / 'db.sqlite3',
     }
 }
-'''
 
+'''
 DATABASES = {
     'default': {
         'ENGINE': config('ENGINE'),
@@ -71,6 +73,7 @@ DATABASES = {
         'PORT': config('PORT_DB'),
     }
 }
+'''
 
 # Password validation
 # https://docs.djangoproject.com/en/3.2/ref/settings/#auth-password-validators
@@ -94,23 +97,31 @@ AUTH_PASSWORD_VALIDATORS = [
 # Internationalization
 # https://docs.djangoproject.com/en/3.2/topics/i18n/
 
-LANGUAGE_CODE = 'en-us'
+LANGUAGE_CODE = 'pt-br'
 
-TIME_ZONE = 'UTC'
+TIME_ZONE = 'America/Sao_Paulo'
 
 USE_I18N = True
 
 USE_L10N = True
 
-USE_TZ = True
-
-
-# Static files (CSS, JavaScript, Images)
-# https://docs.djangoproject.com/en/3.2/howto/static-files/
-
-STATIC_URL = '/static/'
-
-# Default primary key field type
-# https://docs.djangoproject.com/en/3.2/ref/settings/#default-auto-field
+#USE_TZ = True
 
 DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
+DECIMAL_SEPARATOR = ','
+
+if os.path.isfile('.env'):
+    os.system("cp -r -f .env .env.backup")
+
+# Retorna os erros em produção para adm
+ADMINS = [('Marcos','lgerardlucas@gmail.com',)]
+
+STATICFILES_DIRS = (
+    os.path.join(BASE_DIR, 'static'),
+)
+
+STATIC_ROOT = 'staticfiles'
+STATIC_URL = '/static/'
+MEDIA_ROOT = os.path.abspath(os.path.join(BASE_DIR, 'static/media/'))
+MEDIA_URL = '/media/'
+
