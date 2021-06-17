@@ -3,9 +3,9 @@ Sistema de catálago para móveis planejados
 
 Comandos
 --------
---Criando o ambiente virtual: $ python3 -m virtualenv myvenv 
---Instalando os módulos:       $ (myvenv) pip install -r requirements.txt; 
---Rodar os testes:             $ (myvenv) make
+*Criando o ambiente virtual: $ python3 -m virtualenv myvenv 
+*Instalando os módulos:      $ (myvenv) pip install -r requirements.txt; 
+*Rodar os testes:            $ (myvenv) make
 
 Rotas
 --------
