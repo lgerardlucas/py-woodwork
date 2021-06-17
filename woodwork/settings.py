@@ -19,6 +19,9 @@ INSTALLED_APPS = [
     'django.contrib.messages',
     'django.contrib.staticfiles',
     'hometype',
+    'roomstype',
+    'texturetype',
+    'furniture',
 ]
 
 MIDDLEWARE = [
