@@ -1,9 +1,9 @@
 from django.test import TestCase
 from django.urls import reverse
 
-class New_HomeTypeTest(TestCase):
+class List_HomeTypeTest(TestCase):
     def setUp(self):
-        self.url = reverse('hometype:new_hometype')
+        self.url = reverse('hometype:list_hometype')
     
     def test_response_200(self):
         response = self.client.get(self.url)
@@ -11,5 +11,4 @@ class New_HomeTypeTest(TestCase):
 
     def test_template_used(self):
         response = self.client.get(self.url)
-        
-        self.assertTemplateUsed(response,'new_hometype.html')
+        self.assertTemplateUsed(response,'list_hometype.html')

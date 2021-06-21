@@ -1,9 +1,9 @@
 from django.test import TestCase
 from django.urls import reverse
 
-class New_TextureTypeTest(TestCase):
+class List_TextureTypeTest(TestCase):
     def setUp(self):
-        self.url = reverse('texturetype:new_texturetype')
+        self.url = reverse('texturetype:list_texturetype')
     
     def test_response_200(self):
         response = self.client.get(self.url)
@@ -12,4 +12,4 @@ class New_TextureTypeTest(TestCase):
     def test_template_used(self):
         response = self.client.get(self.url)
         
-        self.assertTemplateUsed(response,'new_texturetype.html')
+        self.assertTemplateUsed(response,'list_texturetype.html')

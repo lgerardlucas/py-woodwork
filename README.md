@@ -13,6 +13,6 @@ Rotas
 
 [Cadastro de Tipos de Residência](http://127.0.0.1:8000/hometype/new/)
 
-[Cadastro Tipos de Ambientes](http://127.0.0.1:8000/rooms/new/)
+[Cadastro Tipos de Ambientes](http://127.0.0.1:8000/roomstype/new/)
 
-[Cadastro de Tipos de Texturas para MDFs](http://127.0.0.1:8000/texture/new/)
+[Cadastro de Tipos de Texturas para MDFs](http://127.0.0.1:8000/texturetype/new/)

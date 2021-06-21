@@ -1,9 +1,9 @@
 from django.test import TestCase
 from django.urls import reverse
 
-class New_RoomsTypeTest(TestCase):
+class List_RoomsTypeTest(TestCase):
     def setUp(self):
-        self.url = reverse('roomstype:new_roomstype')
+        self.url = reverse('roomstype:list_roomstype')
     
     def test_response_200(self):
         response = self.client.get(self.url)
@@ -12,4 +12,4 @@ class New_RoomsTypeTest(TestCase):
     def test_template_used(self):
         response = self.client.get(self.url)
         
-        self.assertTemplateUsed(response,'new_roomstype.html')
+        self.assertTemplateUsed(response,'list_roomstype.html')

@@ -1,9 +1,9 @@
 from django.urls import path
-from .views import new_furniture
+from .views import list_furniture
 
 app_name = 'furniture'
 
 urlpatterns = [
-    path('new/', new_furniture, name='new_furniture'),
+    path('list/', list_furniture, name='list_furniture'),
 
 ]

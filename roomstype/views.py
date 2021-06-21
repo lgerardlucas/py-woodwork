@@ -1,9 +1,9 @@
 from django.shortcuts import render
 
-def new_roomstype(request):
+def list_roomstype(request):
     context = {
-        'title':'Tipos de Ambiente',
+        'title':'Lista de Ambientes',
         'about':'Cadastre aqui: Sala, Quarta, etc...',
     }
-    return render(request, 'new_roomstype.html', context)
+    return render(request, 'list_roomstype.html', context)
 

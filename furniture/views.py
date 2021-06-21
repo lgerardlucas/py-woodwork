@@ -1,8 +1,8 @@
 from django.shortcuts import render
 
-def new_furniture(request):
+def list_furniture(request):
     context = {
-        'title':'Cadastro de Móveis',
+        'title':'Lista de Móveis',
         'about':'Cadastre aqui: Roupeiro, Cozinha, etc...',
     }
-    return render(request,'new_furniture.html',context)
+    return render(request,'list_furniture.html',context)

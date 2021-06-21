@@ -22,6 +22,7 @@ INSTALLED_APPS = [
     'roomstype',
     'texturetype',
     'furniture',
+    'home',
 ]
 
 MIDDLEWARE = [
@@ -128,3 +129,4 @@ STATIC_URL = '/static/'
 MEDIA_ROOT = os.path.abspath(os.path.join(BASE_DIR, 'static/media/'))
 MEDIA_URL = '/media/'
 
+SILENCED_SYSTEM_CHECKS = ['urls.W002', 'security.W019']

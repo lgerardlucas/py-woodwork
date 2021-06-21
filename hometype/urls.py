@@ -1,9 +1,8 @@
 from django.urls import path
-from .views import new_hometype
+from .views import list_hometype
 
 app_name = 'hometype'
 
 urlpatterns = [
-    path('new/', new_hometype, name='new_hometype'),
-
+    path('list/', list_hometype, name='list_hometype'),
 ]

@@ -1,10 +1,10 @@
 from django.shortcuts import render
 
 # Create your views here.
-def new_hometype(request):
+def list_hometype(request):
     context = {
-        'title':'Tipos de Imóveis',
+        'title':'Lista de Imóveis',
         'about':'Cadastre aqui: Casa, Apartamento, etc...',
     }
-    return render(request, 'new_hometype.html', context)
+    return render(request, 'list_hometype.html', context)
 

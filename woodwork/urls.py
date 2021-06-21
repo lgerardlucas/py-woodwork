@@ -2,10 +2,11 @@ from django.contrib import admin
 from django.urls import path, include
 
 urlpatterns = [
+    path('home/', include('home.urls')),
     path('admin/', admin.site.urls),
-    path('home/', include('hometype.urls')),
+    path('hometype/', include('hometype.urls')),
     path('furniture/', include('furniture.urls')),
-    path('rooms/', include('roomstype.urls')),
-    path('texture/', include('texturetype.urls')),
+    path('roomstype/', include('roomstype.urls')),
+    path('texturetype/', include('texturetype.urls')),
 
 ]
