@@ -7,32 +7,54 @@
         <meta http-equiv='X-UA-Compatible' content='IE=edge'>
         <meta http-equiv="content-language" content="pt-br, en-US">
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
-        <title>{{ title }}</title>
+        <title>WoodWork</title>
+
+        <link href="{% static '/home/css/fontawesome/css/all.css' %}" rel="stylesheet">
 
         <link href="{% static '/home/css/base.css' %}" rel="stylesheet">
-        <link href="{% static '/home/css/fontawesome/css/all.css' %}" rel="stylesheet">
     </head>
 
     <body>
-
         <ul>
             <!--        
             <li><a href="#home">Home</a></li>
             <li><a href="#news">News</a></li>
             -->
             <li class="dropdown">
-                <i class="fas fa-bars dropbtn"></i>
-                <!-- <a href="javascript:void(0)" class="dropbtn">Menu</a>  -->
+                <div class="dropdown-title">
+                    <i class="fas fa-bars dropbtn"> <span style="font-weight: 400;">{{ title_scope }}</span> </i>
+                </div>
                 <div class="dropdown-content">
-                    <a class="fas fa-poll-h" href="{% url 'furniture:list_furniture' %}"> Cadastro de Móveis</a>
-                    <a class="fas fa-box" href="{% url 'roomstype:list_roomstype' %}"> Cadastro de Ambientes</a>
-                    <a class="fas fa-hotel" href="{% url 'hometype:list_hometype' %}"> Cadastro de Imóveis</a>
-                    <a class="fas fa-palette" href="{% url 'texturetype:list_texturetype' %}"> Cadastro de Texturas</a>
-                    <a class="fas fa-home" href="{% url 'home:home' %}"> Home</a>
-
+                    <a class="fas fa-poll-h" href="{% url 'furniture:list_furniture' %}"> <spam style="font-weight: 400; font-size: 16px;"> Cadastro de Móveis </spam> </a>
+                    <a class="fas fa-box" href="{% url 'roomstype:list_roomstype' %}"> <spam style="font-weight: 400; font-size: 16px;"> Cadastro de Ambientes </spam> </a>
+                    <a class="fas fa-hotel" href="{% url 'hometype:list_hometype' %}"> <spam style="font-weight: 400; font-size: 16px;"> Cadastro de Imóveis </spam> </a>
+                    <a class="fas fa-palette" href="{% url 'texturetype:list_texturetype' %}"> <spam style="font-weight: 400; font-size: 16px;"> Cadastro de Texturas </spam> </a>
+                    <a class="fas fa-home" href="{% url 'home:home' %}"> <spam style="font-weight: 400; font-size: 16px;"> Home </spam></a>
                 </div>
             </li>
         </ul>
+
+        <div class="list-images-cicle">
+            <div class="images-cicle">
+                    <div class="images-title" >
+                        <img class="images-furniture" src="{% static '/images/1.jpeg' %}" ald="Roupeiro">
+                        <legend class="images-legend" >Roupeiro</legend>
+                    </div>
+                    <div class="images-title" >
+                        <img class="images-furniture" src="{% static '/images/2.jpeg' %}" ald="Roupeiro">
+                        <legend class="images-legend" >Cozinha</legend>
+                    </div>
+                    <div class="images-title" >
+                        <img class="images-furniture" src="{% static '/images/3.jpeg' %}" ald="Roupeiro">
+                        <legend class="images-legend" >Banheiro</legend>
+                    </div>
+                    <div class="images-title" >
+                        <img class="images-furniture" src="{% static '/images/4.jpeg' %}" ald="Roupeiro">
+                        <legend class="images-legend" >Painel</legend>
+                    </div>
+
+            </div>
+        </div>
 
         {% block content %} {% endblock%}
 

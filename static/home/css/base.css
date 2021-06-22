@@ -1,5 +1,17 @@
-ul {
+html, body {
+  position: relative;
+  font-family: 'Roboto', sans-serif; /* https://fonts.google.com/specimen/Roboto */
+  font-weight: 400; /* 300 light, 400 normal, 700 bold */ 
+  color: #444;
+  /* margin: 0;
+  padding: 0 */;
+  height: 100%;
+  background-color: #f1f1f1;
+  /* overflow: hidden; */
+  /* line-height: 1.5; */
+}
 
+ul {
   margin: 0;
   padding: 0;
   overflow: hidden;
@@ -16,6 +28,8 @@ li a, .dropbtn {
   text-align: center;
   padding: 14px 16px;
   text-decoration: none;
+  font-size: 18px;
+  font-weight: 700;
 }
 
 li a:hover, .dropdown:hover .dropbtn {
@@ -24,6 +38,10 @@ li a:hover, .dropdown:hover .dropbtn {
 
 li.dropdown {
   display: inline-block;
+}
+
+.dropdown-title {
+  display: inline-flex;
 }
 
 .dropdown-content {
@@ -43,8 +61,39 @@ li.dropdown {
   text-align: left;
 }
 
-.dropdown-content a:hover {background-color: #f1f1f1;}
+.dropdown-content a:hover {
+  background-color: #f1f1f1;
+}
 
 .dropdown:hover .dropdown-content {
   display: block;
+}
+
+.list-images-cicle {
+  padding-top: 5px;
+}
+
+.list-images-cicle .images-cicle {
+  background: #333333; 
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 130px;
+
+}
+
+.list-images-cicle .images-cicle .images-title {
+  padding: 2px 2px 2px 2px;
+}
+
+.list-images-cicle .images-cicle .images-title .images-furniture {
+  width: 70px;
+  height: 70px;
+  border-radius: 50%;
+  border: 2px dashed #f9f9f9;
+  padding: 5px 5px 5px 5px;
+}
+
+.list-images-cicle .images-cicle .images-title .images-legend {
+  color: white; text-align: center;
 }
