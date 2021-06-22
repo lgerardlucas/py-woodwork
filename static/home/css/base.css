@@ -44,6 +44,10 @@ li.dropdown {
   display: inline-flex;
 }
 
+.dropdown-title .dropdown-title-no-select {
+  font-weight: 400; 
+  user-select: none;
+}
 .dropdown-content {
   display: none;
   position: absolute;
@@ -53,7 +57,12 @@ li.dropdown {
   z-index: 1;
 }
 
-.dropdown-content a {
+.dropdown-content .dropdown-content-menu{
+  font-weight: 400; 
+  font-size: 16px;
+}
+
+.dropdown-content a{
   color: black;
   padding: 12px 16px;
   text-decoration: none;
@@ -97,3 +106,4 @@ li.dropdown {
 .list-images-cicle .images-cicle .images-title .images-legend {
   color: white; text-align: center;
 }
+
