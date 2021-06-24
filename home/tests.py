@@ -1,15 +1,26 @@
 from django.test import TestCase
-from django.urls import reverse
+from django.urls import reverse, resolve
+from django.http import HttpRequest
+from .views import home
 
 class HomeTest(TestCase):
     def setUp(self):
         self.url = reverse('home:home')
+    
+    def test_response_200(self):
+        response = self.client.get(self.url)
+        self.assertEqual(response.status_code,200)
 
-        def test_reponse_200(self):
-            response = self.client.get(self.url)
-            self.assertEqual(response.status_code,200)
+    def test_template_used(self):
+        response = self.client.get(self.url)
+        self.assertTemplateUsed(response,'home.html')
         
-        def test_template_uset(sefl):
-            response = self.client.get(self.url)
-            self.assertTemplateUsed(response,'home.html')
+    '''   
+    def test_home_page_return_corret_html(self):
+        request = HttpRequest()
+        response = home(request)
+        html = response.content.decode('utf8')
+        self.assertTrue(html.startswith('<html>'))
+        self.assertTrue(html.endswith('</html>'))
+    '''
 

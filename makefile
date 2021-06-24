@@ -1,4 +1,4 @@
-test_hometype: 
+test: 
 	python manage.py test hometype
 	python manage.py test furniture
 	python manage.py test roomstype

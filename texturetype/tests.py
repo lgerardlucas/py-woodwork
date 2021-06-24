@@ -11,5 +11,4 @@ class List_TextureTypeTest(TestCase):
 
     def test_template_used(self):
         response = self.client.get(self.url)
-        
         self.assertTemplateUsed(response,'list_texturetype.html')
