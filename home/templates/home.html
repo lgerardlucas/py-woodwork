@@ -2,94 +2,131 @@
 {% load static %}
 
 {% block content %}
-<!-- <h1>{{ title_scope }}</h1> -->
 
-<div class="cards-container">
-    <div class="row">
-        <div class="column">
-            <div class="card">
-                <img class="demo cursor product-image" id="product_1" src="{% static '/images/1.jpeg' %}" alt="Roupeiro">
-            </div>
-        </div>
-        <div class="column">
-            <div class="card">
-                <img class="demo cursor product-image" id="product_2" src="{% static '/images/2.jpeg' %}" alt="Roupeiro">
-            </div>
-        </div>
-    
-        <div class="column">
-            <div class="card">
-                <img class="demo cursor product-image" id="product_3" src="{% static '/images/3.jpeg' %}" alt="Roupeiro">
-            </div>
-        </div>
-        <div class="column">
-            <div class="card">
-                <img class="demo cursor product-image" id="product_4" src="{% static '/images/4.jpeg' %}" alt="Roupeiro">
-            </div>
-        </div>
-        <div class="column">
-            <div class="card">
-                <img class="demo cursor product-image" id="product_5" src="{% static '/images/5.jpeg' %}" alt="Roupeiro">
-            </div>
-        </div>
-        <div class="column">
-            <div class="card">
-                <img class="demo cursor product-image" id="product_6" src="{% static '/images/6.jpeg' %}" alt="Roupeiro">
-            </div>
-        </div>
-        <div class="column">
-            <div class="card">
-                <img class="demo cursor product-image" id="product_7" src="{% static '/images/7.jpeg' %}" alt="Roupeiro">
-            </div>
-        </div>
-        <div class="column">
-            <div class="card">
-                <img class="demo cursor product-image" id="product_8" src="{% static '/images/8.jpeg' %}" alt="Roupeiro">
-            </div>
-        </div>
-        <div class="column">
-            <div class="card">
-                <img class="demo cursor product-image" id="product_9" src="{% static '/images/9.jpeg' %}" alt="Roupeiro">
-            </div>
-        </div>
-        <div class="column">
-            <div class="card">
-                <img class="demo cursor product-image" id="product_10" src="{% static '/images/10.jpeg' %}" alt="Roupeiro">
-            </div>
-        </div>
-        <div class="column">
-            <div class="card">
-                <img class="demo cursor product-image" id="product_11" src="{% static '/images/11.jpeg' %}" alt="Roupeiro">
-            </div>
-        </div>
-        <div class="column">
-            <div class="card">
-                <img class="demo cursor product-image" id="product_12" src="{% static '/images/12.jpeg' %}" alt="Roupeiro">
-            </div>
-        </div>
-        <div class="column">
-            <div class="card">
-                <img class="demo cursor product-image" id="product_13" src="{% static '/images/13.jpeg' %}" alt="Roupeiro">
-            </div>
-        </div>
-        <div class="column">
-            <div class="card">
-                <img class="demo cursor product-image" id="product_14" src="{% static '/images/14.jpeg' %}" alt="Roupeiro">
-            </div>
-        </div>
-        <div class="column">
-            <div class="card">
-                <img class="demo cursor product-image" id="product_15" src="{% static '/images/15.jpeg' %}" alt="Roupeiro">
-            </div>
-        </div>
-        <div class="column">
-            <div class="card">
-                <img class="demo cursor product-image" id="product_16" src="{% static '/images/16.jpeg' %}" alt="Roupeiro">
-            </div>
-        </div> 
-       
-    </div>
+<div id="myBtnfurniture">
+    <button class="btn active" onclick="filterSelection('all')"> Todos</button>
+    <button class="btn" onclick="filterSelection('roupeiro')"> Roupeiros</button>
+    <button class="btn" onclick="filterSelection('cozinha')"> Cozinhas</button>
+    <button class="btn" onclick="filterSelection('banheiro')"> Banheiros</button>
+    <button class="btn" onclick="filterSelection('painel')"> Paineis</button>
 </div>
+
+    <div class="cards-container">
+        <div class="row">
+
+            <div class="filterDiv cozinha column">
+                <div class="card">
+                    <img class="demo cursor product-image" id="product_1"
+                        src="{% static '/images/1.jpeg' %}" alt="Cozinha">
+                </div>
+            </div>
+
+            <div class="filterDiv cozinha column">
+                <div class="card">
+                    <img class="demo cursor product-image" id="product_2"
+                        src="{% static '/images/2.jpeg' %}" alt="Cozinha">
+                </div>
+            </div>
+
+            <div class="filterDiv cozinha column">
+                <div class="card">
+                    <img class="demo cursor product-image" id="product_3"
+                        src="{% static '/images/3.jpeg' %}" alt="Cozinha">
+                </div>
+            </div>
+            <div class="filterDiv cozinha column">
+                <div class="card">
+                    <img class="demo cursor product-image" id="product_4"
+                        src="{% static '/images/4.jpeg' %}" alt="Cozinha">
+                </div>
+            </div>
+            <div class="filterDiv cozinha column">
+                <div class="card">
+                    <img class="demo cursor product-image" id="product_5"
+                        src="{% static '/images/5.jpeg' %}" alt="Cozinha">
+                </div>
+            </div>
+            <div class="filterDiv cozinha column">
+                <div class="card">
+                    <img class="demo cursor product-image" id="product_6"
+                        src="{% static '/images/6.jpeg' %}" alt="Cozinha">
+                </div>
+            </div>
+            <div class="filterDiv roupeiro column">
+                <div class="card">
+                    <img class="demo cursor product-image" id="product_7"
+                        src="{% static '/images/7.jpeg' %}" alt="Roupeiro">
+                </div>
+            </div>
+            <div class="filterDiv roupeiro column">
+                <div class="card">
+                    <img class="demo cursor product-image" id="product_8"
+                        src="{% static '/images/8.jpeg' %}" alt="Roupeiro">
+                </div>
+            </div>
+            <div class="filterDiv roupeiro column">
+                <div class="card">
+                    <img class="demo cursor product-image" id="product_9"
+                        src="{% static '/images/9.jpeg' %}" alt="Roupeiro">
+                </div>
+            </div>
+            <div class="filterDiv roupeiro column">
+                <div class="card">
+                    <img class="demo cursor product-image" id="product_10"
+                        src="{% static '/images/10.jpeg' %}" alt="Roupeiro">
+                </div>
+            </div>
+            <div class="filterDiv roupeiro column">
+                <div class="card">
+                    <img class="demo cursor product-image" id="product_11"
+                        src="{% static '/images/11.jpeg' %}" alt="Roupeiro">
+                </div>
+            </div>
+            <div class="filterDiv roupeiro column">
+                <div class="card">
+                    <img class="demo cursor product-image" id="product_12"
+                        src="{% static '/images/12.jpeg' %}" alt="Roupeiro">
+                </div>
+            </div>
+            <div class="filterDiv banheiro column">
+                <div class="card">
+                    <img class="demo cursor product-image" id="product_13"
+                        src="{% static '/images/13.jpeg' %}" alt="Banheiro">
+                </div>
+            </div>
+            <div class="filterDiv banheiro column">
+                <div class="card">
+                    <img class="demo cursor product-image" id="product_14"
+                        src="{% static '/images/14.jpeg' %}" alt="Banheiro">
+                </div>
+            </div>
+            <div class="filterDiv banheiro column">
+                <div class="card">
+                    <img class="demo cursor product-image" id="product_15"
+                        src="{% static '/images/15.jpeg' %}" alt="Banheiro">
+                </div>
+            </div>
+            <div class="filterDiv painel column">
+                <div class="card">
+                    <img class="demo cursor product-image" id="product_16"
+                        src="{% static '/images/16.jpeg' %}" alt="Painel">
+                </div>
+            </div>
+            <div class="filterDiv painel column">
+                <div class="card">
+                    <img class="demo cursor product-image" id="product_16"
+                        src="{% static '/images/17.jpeg' %}" alt="Painel">
+                </div>
+            </div>
+            <div class="filterDiv painel column">
+                <div class="card">
+                    <img class="demo cursor product-image" id="product_16"
+                        src="{% static '/images/18.jpeg' %}" alt="Painel">
+                </div>
+            </div>
+
+        </div>
+    </div>
 
 <!-- The Modal -->
 <div class="modal modal-image">
