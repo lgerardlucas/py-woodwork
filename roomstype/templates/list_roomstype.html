@@ -2,5 +2,47 @@
 {% load static %}
 
 {% block content %}
-    <h1>{{ about }}</h1>
+<div style="text-align: right; padding-right: 10px; font-size: 2em; ">
+    <i class="fas fa-plus-square" style="cursor: pointer;"></i>
+</div>
+<div class="container">
+    <form action="/action_page.php">
+        <table id="customers">
+            <tr>
+                <th>Ambiente</th>
+                <th style="text-align: center; width: 20px;">Ações</th>
+            </tr>
+            <tr>
+                <td>Sala</td>
+                <td>
+                    <div id="actions-buttons">
+                        <i class="fas fa-edit cursor-style"></i>
+                        <i class="fas fa-trash-alt cursor-style"></i>
+                        <i class="fas fa-save cursor-style"></i>
+                    </div>
+                </td>
+            </tr>
+            <tr>
+                <td>Cozinha</td>
+                <td>
+                    <div id="actions-buttons">
+                        <i class="fas fa-edit cursor-style"></i>
+                        <i class="fas fa-trash-alt cursor-style"></i>
+                        <i class="fas fa-save cursor-style"></i>
+                    </div>
+                </td>
+            </tr>
+            <tr>
+                <td>Banheiro</td>
+                <td>
+                    <div id="actions-buttons">
+                        <i class="fas fa-edit cursor-style"></i>
+                        <i class="fas fa-trash-alt cursor-style"></i>
+                        <i class="fas fa-save cursor-style"></i>
+                    </div>
+                </td>
+            </tr>
+        </table>
+    </form>
+</div>
 {% endblock %}
