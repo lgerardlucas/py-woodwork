@@ -3,7 +3,7 @@ from .models import RoomsType
 from .forms import RoomsTypeForm
 from django.db import IntegrityError
 from django.contrib import messages
-from .utils import normalize
+from utils import normalize
 
 app_name = 'roomstype'
 
@@ -21,11 +21,10 @@ def new_roomstype(request):
     template_name = 'new_roomstype.html'
     form = RoomsTypeForm(request.POST or None)
     if form.is_valid():
-        try:
-            form.save()
-            return redirect('roomstype:list_roomstype')
-        except IntegrityError as e: 
-            return redirect('roomstype:list_roomstype')
+        room = form.save(commit=False)
+        room.name = normalize(room.name.title())
+        room.save()
+        return redirect('roomstype:list_roomstype')
     else:
         messages.add_message(request, messages.INFO, form.errors)
 

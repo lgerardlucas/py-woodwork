@@ -6,8 +6,8 @@
 <div class="container">
     <form method="POST" enctype="multipart/form-data" action="#">
         {% csrf_token %}
-        <label for="fname">Nome do Ambiente</label>
-        <input type="text" id="name" name="name" value="{{ record.name }}" placeholder="Digite aqui: Sala, Cozinha..." autofocus>
+        <label for="fname">Nome da Textura</label>
+        <input type="text" id="name" name="name" value="{{ record.name }}" placeholder="Digite aqui: Lino, Marroco..." autofocus>
 
         <div class="input_button">
             <input type="submit" value="Salvar">

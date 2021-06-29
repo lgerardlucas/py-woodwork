@@ -2,57 +2,32 @@
 {% load static %}
 
 {% block content %}
-<div style="text-align: right; padding-right: 10px; font-size: 2em; ">
-    <i class="fas fa-plus-square" style="cursor: pointer;"></i>
-</div>
 <div class="container">
-    <form action="/action_page.php">
+    
+    <div class="insert-count"> 
+        <i class="fas fa-star-half-alt record-count"> {{ records.count }} Textura{{ records.count|pluralize }} </i>
+
+        <a class="cursor-style" href="{% url 'texturetype:new_texturetype' %}">
+            <i class="fas fa-plus-square cursor-style"></i>
+        </a>
+    </div>
+    <form action="#">
         <table id="customers">
             <tr>
                 <th>Texturas</th>
                 <th style="text-align: center; width: 20px;">Ações</th>
             </tr>
-            <tr>
-                <td>Marroco</td>
-                <td>
-                    <div id="actions-buttons">
-                        <i class="fas fa-edit cursor-style"></i>
-                        <i class="fas fa-trash-alt cursor-style"></i>
-                        <i class="fas fa-save cursor-style"></i>
-                    </div>
-                </td>
-            </tr>
-            <tr>
-                <td>Lino</td>
-                <td>
-                    <div id="actions-buttons">
-                        <i class="fas fa-edit cursor-style"></i>
-                        <i class="fas fa-trash-alt cursor-style"></i>
-                        <i class="fas fa-save cursor-style"></i>
-                    </div>
-                </td>
-            </tr>
-            <tr>
-                <td>Branco</td>
-                <td>
-                    <div id="actions-buttons">
-                        <i class="fas fa-edit cursor-style"></i>
-                        <i class="fas fa-trash-alt cursor-style"></i>
-                        <i class="fas fa-save cursor-style"></i>
-                    </div>
-                </td>
-            </tr>
-            <tr>
-                <td>Nogueira</td>
-                <td>
-                    <div id="actions-buttons">
-                        <i class="fas fa-edit cursor-style"></i>
-                        <i class="fas fa-trash-alt cursor-style"></i>
-                        <i class="fas fa-save cursor-style"></i>
-                    </div>
-                </td>
-            </tr>
-
+            {% for record in records %}
+                <tr>
+                    <td>{{ record.name }}</td>
+                    <td>
+                        <div id="actions-buttons">
+                            <a href="{% url 'texturetype:edit_texturetype' record.id %}"><i class="fas fa-edit cursor-style"></i></a>
+                            <a href="{% url 'texturetype:delete_texturetype' record.id %}"><i class="fas fa-trash-alt cursor-style"></i></a>
+                        </div>
+                    </td>
+                </tr>
+            {% endfor %}
         </table>
     </form>
 </div>

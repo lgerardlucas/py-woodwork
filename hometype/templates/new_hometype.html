@@ -7,8 +7,8 @@
 
     <form method="POST" enctype="multipart/form-data" action="#">
         {% csrf_token %}
-        <label for="fname">Nome da Ambiente</label>
-        <input type="text" id="name" name="name" value="{{ record.name }}" placeholder="Digite aqui: Sala, Cozinha..." autofocus>
+        <label for="fname">Nome do Imóvel</label>
+        <input type="text" id="name" name="name" value="{{ record.name }}" placeholder="Digite aqui: Casa, Apartamento..." autofocus>
 <!-- 
         <label for="country">Country</label>
         <select id="country" name="country">
