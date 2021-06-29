@@ -21,9 +21,16 @@ def new_hometype(request):
     template_name = 'new_hometype.html'
     form = HomeTypeForm(request.POST or None)
     if form.is_valid():
-        home = form.save(commit=False)
-        home.name = normalize(home.name.title())
-        home.save()
+        try:
+            home = form.save(commit=False)
+            home.name = normalize(home.name.title())
+            home.save()
+        except IntegrityError as e:
+            if 'UNIQUE' in str(e).upper():
+                messages.add_message(request, messages.INFO, 'Imóvel "'+home.name+'" já cadastrado!')
+            else:
+                messages.add_message(request, messages.INFO, 'Erro ao incluir o imóvel "'+home.name+'! '+str(e))
+            return redirect('hometype:new_hometype')
         return redirect('hometype:list_hometype')
     else:
         messages.add_message(request, messages.INFO, form.errors)
@@ -46,9 +53,16 @@ def edit_hometype(request, id):
     form = HomeTypeForm(request.POST, instance=hometype)
     if request.method == 'POST':
         if form.is_valid():
-            home = form.save(commit=False)
-            home.name = normalize(home.name.title())
-            home.save()
+            try:
+                home = form.save(commit=False)
+                home.name = normalize(home.name.title())
+                home.save()
+            except IntegrityError as e:
+                if 'UNIQUE' in str(e).upper():
+                    messages.add_message(request, messages.INFO, 'Imóvel "'+home.name+'" já cadastrado!')
+                else:
+                    messages.add_message(request, messages.INFO, 'Erro ao incluir o imóvel "'+home.name+'! '+str(e))
+                return redirect('hometype:new_hometype')
         return redirect('hometype:list_hometype')
     else:
         context = {

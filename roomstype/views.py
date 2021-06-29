@@ -21,9 +21,16 @@ def new_roomstype(request):
     template_name = 'new_roomstype.html'
     form = RoomsTypeForm(request.POST or None)
     if form.is_valid():
-        room = form.save(commit=False)
-        room.name = normalize(room.name.title())
-        room.save()
+        try:
+            room = form.save(commit=False)
+            room.name = normalize(room.name.title())
+            room.save()
+        except IntegrityError as e:
+            if 'UNIQUE' in str(e).upper():
+                messages.add_message(request, messages.INFO, 'Ambiente "'+room.name+'" já cadastrado!')
+            else:
+                messages.add_message(request, messages.INFO, 'Erro ao incluir o ambiente "'+room.name+'! '+str(e))
+            return redirect('roomstype:new_roomstype')
         return redirect('roomstype:list_roomstype')
     else:
         messages.add_message(request, messages.INFO, form.errors)
@@ -46,9 +53,16 @@ def edit_roomstype(request, id):
     form = RoomsTypeForm(request.POST, instance=roomtype)
     if request.method == 'POST':
         if form.is_valid():
-            room = form.save(commit=False)
-            room.name = normalize(room.name.title())
-            room.save()
+            try:
+                room = form.save(commit=False)
+                room.name = normalize(room.name.title())
+                room.save()
+            except IntegrityError as e:
+                if 'UNIQUE' in str(e).upper():
+                    messages.add_message(request, messages.INFO, 'Ambiente "'+room.name+'" já cadastrado!')
+                else:
+                    messages.add_message(request, messages.INFO, 'Erro ao incluir o ambiente "'+room.name+'! '+str(e))
+                return redirect('roomstype:new_roomstype')
         return redirect('roomstype:list_roomstype')
     else:
         context = {

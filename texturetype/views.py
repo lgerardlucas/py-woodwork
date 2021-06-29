@@ -21,9 +21,16 @@ def new_texturetype(request):
     template_name = 'new_texturetype.html'
     form = TextureTypeForm(request.POST or None)
     if form.is_valid():
-        texture = form.save(commit=False)
-        texture.name = normalize(texture.name.title())
-        texture.save()
+        try:
+            texture = form.save(commit=False)
+            texture.name = normalize(texture.name.title())
+            texture.save()
+        except IntegrityError as e:
+            if 'UNIQUE' in str(e).upper():
+                messages.add_message(request, messages.INFO, 'Textura "'+texture.name+'" já cadastrada!')
+            else:
+                messages.add_message(request, messages.INFO, 'Erro ao incluir a texture "'+texture.name+'! '+str(e))
+            return redirect('texturetype:new_texturetype')
         return redirect('texturetype:list_texturetype')
     else:
         messages.add_message(request, messages.INFO, form.errors)
@@ -46,10 +53,17 @@ def edit_texturetype(request, id):
     form = TextureTypeForm(request.POST, instance=texturetype)
     if request.method == 'POST':
         if form.is_valid():
-            texture = form.save(commit=False)
-            texture.name = normalize(texture.name.title())
-            texture.save()
-        return redirect('texturetype:list_texturetype')
+            try:
+                texture = form.save(commit=False)
+                texture.name = normalize(texture.name.title())
+                texture.save()
+            except IntegrityError as e:
+                if 'UNIQUE' in str(e).upper():
+                    messages.add_message(request, messages.INFO, 'Textura "'+room.name+'" já cadastrada!')
+                else:
+                    messages.add_message(request, messages.INFO, 'Erro ao incluir a textura "'+room.name+'! '+str(e))
+                return redirect('texturetype:new_texturetype')
+        return redirect('roomstype:list_texturetype')
     else:
         context = {
             'title_scope':'Texture - Alterar',
