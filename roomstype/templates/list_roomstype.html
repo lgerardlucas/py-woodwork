@@ -2,46 +2,29 @@
 {% load static %}
 
 {% block content %}
-<div style="text-align: right; padding-right: 10px; font-size: 2em; ">
-    <i class="fas fa-plus-square" style="cursor: pointer;"></i>
-</div>
 <div class="container">
-    <form action="/action_page.php">
+    <div style="text-align: right; padding-right: 10px; font-size: 2em; ">
+        <a class="cursor-style" href="{% url 'roomstype:new_roomstype' %}">
+            <i class="fas fa-plus-square cursor-style"></i>
+        </a>
+    </div>
+    <form action="#">
         <table id="customers">
             <tr>
-                <th>Ambiente</th>
+                <th>Ambientes</th>
                 <th style="text-align: center; width: 20px;">Ações</th>
             </tr>
-            <tr>
-                <td>Sala</td>
-                <td>
-                    <div id="actions-buttons">
-                        <i class="fas fa-edit cursor-style"></i>
-                        <i class="fas fa-trash-alt cursor-style"></i>
-                        <i class="fas fa-save cursor-style"></i>
-                    </div>
-                </td>
-            </tr>
-            <tr>
-                <td>Cozinha</td>
-                <td>
-                    <div id="actions-buttons">
-                        <i class="fas fa-edit cursor-style"></i>
-                        <i class="fas fa-trash-alt cursor-style"></i>
-                        <i class="fas fa-save cursor-style"></i>
-                    </div>
-                </td>
-            </tr>
-            <tr>
-                <td>Banheiro</td>
-                <td>
-                    <div id="actions-buttons">
-                        <i class="fas fa-edit cursor-style"></i>
-                        <i class="fas fa-trash-alt cursor-style"></i>
-                        <i class="fas fa-save cursor-style"></i>
-                    </div>
-                </td>
-            </tr>
+            {% for record in records %}
+                <tr>
+                    <td>{{ record.name }}</td>
+                    <td>
+                        <div id="actions-buttons">
+                            <a href="{% url 'roomstype:edit_roomstype' record.id %}"><i class="fas fa-edit cursor-style"></i></a>
+                            <a href="{% url 'roomstype:delete_roomstype' record.id %}"><i class="fas fa-trash-alt cursor-style"></i></a>
+                        </div>
+                    </td>
+                </tr>
+            {% endfor %}
         </table>
     </form>
 </div>
