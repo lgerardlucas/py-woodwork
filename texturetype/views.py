@@ -45,7 +45,7 @@ def delete_texturetype(request, id):
     texturetype = TextureType.objects.filter(id=id)
     if texturetype:
         texturetype.delete()
-    return redirect('texturestype:list_texturetype')
+    return redirect('texturetype:list_texturetype')
 
 def edit_texturetype(request, id):
     template_name = 'edit_texturetype.html'
@@ -59,11 +59,11 @@ def edit_texturetype(request, id):
                 texture.save()
             except IntegrityError as e:
                 if 'UNIQUE' in str(e).upper():
-                    messages.add_message(request, messages.INFO, 'Textura "'+room.name+'" já cadastrada!')
+                    messages.add_message(request, messages.INFO, 'Textura "'+texture.name+'" já cadastrada!')
                 else:
                     messages.add_message(request, messages.INFO, 'Erro ao incluir a textura "'+room.name+'! '+str(e))
                 return redirect('texturetype:new_texturetype')
-        return redirect('roomstype:list_texturetype')
+        return redirect('texturetype:list_texturetype')
     else:
         context = {
             'title_scope':'Texture - Alterar',
