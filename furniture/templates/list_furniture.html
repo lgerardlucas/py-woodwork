@@ -2,5 +2,33 @@
 {% load static %}
 
 {% block content %}
-    <h1>{{ about }}</h2>
+<div class="container">
+    
+    <div class="insert-count"> 
+        <i class="fas fa-star-half-alt record-count"> {{ records.count }} Móveis </i>
+
+        <a class="cursor-style" href="{% url 'furniture:new_furniture' %}">
+            <i class="fas fa-plus-square cursor-style"></i>
+        </a>
+    </div>
+    <form action="#">
+        <table id="customers">
+            <tr>
+                <th>Móveis</th>
+                <th style="text-align: center; width: 20px;">Ações</th>
+            </tr>
+            {% for record in records %}
+                <tr>
+                    <td>{{ record.name }}</td>
+                    <td>
+                        <div id="actions-buttons">
+                            <a href="{% url 'furniture:edit_furniture' record.id %}"><i class="fas fa-edit cursor-style"></i></a>
+                            <a href="{% url 'furniture:delete_furniture' record.id %}"><i class="fas fa-trash-alt cursor-style"></i></a>
+                        </div>
+                    </td>
+                </tr>
+            {% endfor %}
+        </table>
+    </form>
+</div>
 {% endblock %}
