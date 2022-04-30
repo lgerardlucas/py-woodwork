@@ -1,0 +1,13 @@
+cloudinary
+dj-database-url
+dj-static
+Django
+django-admin-rangefilter
+django-filter
+djangorestframework
+gunicorn
+Pillow
+psycopg2-binary
+pylint
+python-decouple
+dj-database-url

@@ -1,0 +1,13 @@
+version: "3.9"
+   
+services:
+  web-woodwork:
+    build: .
+    command: python manage.py runserver 0.0.0.0:8002
+    container_name: py-woodwork
+    volumes:
+      - .:/app
+    ports:
+      - "8002:8002"
+    restart: always
+    network_mode: "host"
